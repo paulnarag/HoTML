@@ -59,8 +59,19 @@ defaults = {
     "JS": "script.js"
 }
 
+finalNames = {
+
+}
+
 for lang, fileName in defaults.items():
-    print(f"{lang} file: ({fileName}): ")
+    fileName = input(f"{lang} file: ({fileName}): ")
+    if fileName == "":
+        finalNames[lang] = defaults[lang]
+        print(finalNames)
+    else:
+        finalNames[lang] = fileName
+        print(finalNames)
+
 
 # getFilenames()
 # createFiles()
