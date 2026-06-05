@@ -1,58 +1,6 @@
 import fire
 from pathlib import Path
 
-# HTMLpath = "index.html"
-# CSSpath = "style.css"
-# JSpath = "script.js"
-
-# paths = ["index.html", "style.css", "script.js"]
-
-# yesInputs = ["y", "Y", ""]
-
-
-
-
-            
-# def getFilenames():
-#     for i in range(len(paths)):
-#         extension = paths[i].split(".", 1)[1].upper()
-#         choice = input(f"Are you ok with the {extension} file, {paths[i]}? (y/n): ")
-#         if choice == "n":
-#             while True:
-#                 newName = input(f"Your choice of file name for the {extension} file (not ok with file): ")
-
-#                 if newName != "":
-#                     paths[i] = newName
-#                     break
-                
-#                 print("You have entered an invalid name, please try again.")
-
-
-
-# def createFiles():
-#     for x in range(len(paths)):
-#         extension = paths[x].split(".", 1)[1].upper()
-
-#         try:
-#             file = open(paths[x], "x")
-#             file.close()
-#             print(f"File created {paths[x]}")
-#         except FileExistsError:
-#             newName = input(f"Your choice of file name for the {extension} file (file exists error): ")
-#             while True:
-#                 if newName == "" or newName in paths or Path(newName).is_file():
-#                     newName = input(f"Please choose a new file name: ")
-#                 else:
-#                     paths[x] = newName
-#                     break
-#             file = open(paths[x], "x")
-#             file.close()
-#             print(f"new attempt File created {paths[x]}")
-
-            
-                
-                
-
 defaults = {
     "HTML": "index.html",
     "CSS": "style.css",
@@ -63,19 +11,20 @@ finalNames = {
 
 }
 
-for lang, fileName in defaults.items():
-    fileName = input(f"{lang} file: ({fileName}): ")
-    if fileName == "":
-        finalNames[lang] = defaults[lang]
-        print(finalNames)
-    else:
-        finalNames[lang] = fileName
-        print(finalNames)
+for lang, defaultName in defaults.items():
+    while True:
+        userInput = input(f"{lang} file: ({defaultName}): ")
+        if userInput == "":
+            chosenName = defaultName
+        else:
+            chosenName = userInput
 
+        if Path(chosenName).is_file():
+            print(f"{chosenName} already exists. Please choose another name.")
+        elif chosenName in finalNames.values():
+            print(f"{chosenName} is already selected. Please choose another name.")
+        else:
+            finalNames[lang] = chosenName
+            break
 
-# getFilenames()
-# createFiles()
-
-
-#if __name__ == '__main__':
-#    fire.Fire(createInWD)
+print(finalNames)
