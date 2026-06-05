@@ -7,21 +7,45 @@ JSpath = "script.js"
 
 paths = ["index.html", "style.css", "script.js"]
 
-def createFiles():
-    for file in paths:
-        file = open(file, "w")
+yesInputs = ["y", "Y", ""]
 
-for i in range(len(paths)):
-    print(f"The {paths[i].split(".", 1)[1].upper()} file will be named {paths[i]}")
-    choice = input("Are you ok with this? (y/n): ")
-    if choice == "n":
-        newName = input("Your choice of file name: ")
-        paths[i] = newName
-    #if choice == "y":
+# def createFiles():
+#     while True:
+#         for x in range(len(paths)):
+#             #if Path(paths[x]).is_file():
+#             #    paths[x] = open(paths[x], "x")
+#             #else:
+#             #    newName=input(f"The {paths[x]} file already exists, please enter a new name: ")
+#             #    paths[x] = newName
+
+#             try:
+#                 file = open(paths[x], "x")
+#                 break
+#             except FileExistsError:
+#                 newName=input(f"The {paths[x]} file already exists, please enter a new name: ")
+#                 paths[x] = newName
+
+
+            
+def getFilenames():
+    for i in range(len(paths)):
+        extension = paths[i].split(".", 1)[1].upper()
+        choice = input(f"Are you ok with the {extension} file, {paths[i]}? (y/n): ")
+        if choice == "n":
+            while True:
+                newName = input(f"Your choice of file name for the {extension} file: ")
+
+                if newName != "":
+                    paths[i] = newName
+                    break
+                
+                print("You have entered an invalid name, please try again.")
+
+
 
 print(paths)
 
-createFiles()
+#createFiles()
 
 
 #def createInWD():
