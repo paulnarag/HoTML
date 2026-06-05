@@ -9,21 +9,7 @@ paths = ["index.html", "style.css", "script.js"]
 
 yesInputs = ["y", "Y", ""]
 
-# def createFiles():
-#     while True:
-#         for x in range(len(paths)):
-#             #if Path(paths[x]).is_file():
-#             #    paths[x] = open(paths[x], "x")
-#             #else:
-#             #    newName=input(f"The {paths[x]} file already exists, please enter a new name: ")
-#             #    paths[x] = newName
 
-#             try:
-#                 file = open(paths[x], "x")
-#                 break
-#             except FileExistsError:
-#                 newName=input(f"The {paths[x]} file already exists, please enter a new name: ")
-#                 paths[x] = newName
 
 
             
@@ -33,7 +19,7 @@ def getFilenames():
         choice = input(f"Are you ok with the {extension} file, {paths[i]}? (y/n): ")
         if choice == "n":
             while True:
-                newName = input(f"Your choice of file name for the {extension} file: ")
+                newName = input(f"Your choice of file name for the {extension} file (not ok with file): ")
 
                 if newName != "":
                     paths[i] = newName
@@ -43,13 +29,44 @@ def getFilenames():
 
 
 
-print(paths)
+def createFiles():
+    # while True:
+    #     for x in range(len(paths)):
+    #         try:
+    #             file = open(paths[x], "x")
+    #             break
+    #         except FileExistsError:
+    #             newName=input(f"The {paths[x]} file already exists, please enter a new name: ")
+    #             paths[x] = newName
 
-#createFiles()
+    for x in range(len(paths)):
+        extension = paths[x].split(".", 1)[1].upper()
+
+        try:
+            file = open(paths[x], "x")
+            file.close()
+            print(f"File created {paths[x]}")
+        except FileExistsError:
+            newName = input(f"Your choice of file name for the {extension} file (file exists error): ")
+            while True:
+                if newName == "" or newName in paths or Path(newName).is_file():
+                    newName = input(f"Please choose a new file name: ")
+                else:
+                    paths[x] = newName
+                    break
+            file = open(paths[x], "x")
+            file.close()
+            print(f"new attempt File created {paths[x]}")
+
+            
+                
+                
 
 
-#def createInWD():
 
+
+getFilenames()
+createFiles()
 
 
 #if __name__ == '__main__':
