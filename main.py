@@ -26,5 +26,8 @@ for lang, defaultName in defaults.items():
         else:
             finalNames[lang] = chosenName
             break
+for file in finalNames.values():
+    with open(file, "x"):
+        pass
 
 print(finalNames)
