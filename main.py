@@ -110,10 +110,31 @@ def fileCreation():
         else:
             print(f"Created {filename}")
 
-def main():
+def create():
+    '''
+    Create HTML, CSS and JS boilerplate files.
+    '''
     gettingFileNames()
     fileCreation()
 
+def help():
+    '''Shows a help message'''
+    print("""
+HoTML - HTML/CSS/JS boilerplate generator
+It's called HoTML because boiling is HoT and this creates boilerplate files for HTML, CSS and JS.
+          
+Commands:
+    create      Create HTML, CSS and JS boilerplate files
+    help        Shows this help message.
+    
+Usage:
+    hotml create
+    hotml help
+""")
+
 
 if __name__ == "__main__":
-    fire.Fire(main)
+    fire.Fire({
+        "create": create,
+        "help": help
+    })
