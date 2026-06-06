@@ -7,6 +7,7 @@ It is called HoTML because boiling is hot, and this tool creates boilerplate fil
 This project was built with AI assistance only for testing this tool (tests folder)
 
 ![Help Command](https://user-cdn.hackclub-assets.com/019e9c48-fa14-746e-9329-7a5b2ca9a1d1/Screenshot%202026-06-06%20at%205.34.01%E2%80%AFPM.png)
+![Creating files](https://user-cdn.hackclub-assets.com/019e9c54-bc0f-772a-b5a2-73506629387d/2026-06-06_17-47-26.png)
 
 ## Available Binary
 
