@@ -1,4 +1,5 @@
 from pathlib import Path
+import fire
 
 defaults = {
     "HTML": "index.html",
@@ -109,8 +110,10 @@ def fileCreation():
         else:
             print(f"Created {filename}")
 
+def main():
+    gettingFileNames()
+    fileCreation()
 
-gettingFileNames()
-print(finalNames)
-print(overwriteChoices)
-fileCreation()
+
+if __name__ == "__main__":
+    main()
