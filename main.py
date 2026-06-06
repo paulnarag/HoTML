@@ -6,15 +6,51 @@ defaults = {
     "JS": "script.js"
 }
 
-contents = {
-    "HTML": "HyperText Markup Language",
-    "CSS": "Cascading Style Sheets",
-    "JS": "Javascript"
-}
+
 
 finalNames = {}
 overwriteChoices = {}
 
+def getContents():
+    return {
+        "HTML": f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{finalNames["CSS"]}">
+</head>
+<body>
+    <main class="container">
+        <h1>Hello, world!</h1>
+        <p>Start building your project here.</p>
+    </main>
+
+    <script src="{finalNames["JS"]}"></script>
+</body>
+</html>''',
+        "CSS": '''* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}''',
+        "JS": '''console.log("Script loaded");
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Your JavaScript code here
+});'''
+    }
 
 def gettingFileNames():
     for lang, defaultName in defaults.items():
@@ -55,7 +91,8 @@ def gettingFileNames():
 
 
 def fileCreation():
-    for lang, file in finalNames.items():
+    contents=getContents()
+    for lang, filename in finalNames.items():
 
         content = contents[lang]
 
@@ -64,13 +101,13 @@ def fileCreation():
         else:
             mode = "x"
 
-        with open(file, mode) as file:
-            file.write(content)
+        with open(filename, mode) as f:
+            f.write(content)
 
         if mode == "w":
-            print(f"Overwritten {file}")
+            print(f"Overwritten {filename}")
         else:
-            print(f"Created {file}")
+            print(f"Created {filename}")
 
 
 gettingFileNames()
