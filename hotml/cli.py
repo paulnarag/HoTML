@@ -76,6 +76,13 @@ def get_file_names():
             else:
                 chosen_name = user_input
 
+            
+            # Validate filename doesn't contain invalid characters
+            invalid_chars = ['/', '\\', ':', '*', '?', '"', '<', '>', '|']
+            if any(char in chosen_name for char in invalid_chars):
+                print(f"Filename contains invalid characters: {', '.join(invalid_chars)}")
+                continue
+
             # Validate file extension
             file_ext = Path(chosen_name).suffix.lower()
             valid_exts = EXTENSIONS[lang]
@@ -180,5 +187,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
     main()
