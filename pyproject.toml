@@ -1,0 +1,12 @@
+[project]
+name = "hotml"
+version = "0.1.0"
+description = "A simple HTML, CSS, and JavaScript boilerplate generator"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "fire"
+]
+
+[project.scripts]
+hotml = "hotml.cli:main"
