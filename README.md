@@ -1,3 +1,4 @@
+
 # HoTML
 
 HoTML is a CLI tool that generates HTML, CSS, and JavaScript boilerplate files.
@@ -14,7 +15,16 @@ hotml-macos-arm64.zip
 
 ## Installation
 
-Unzip the file, open Terminal in the unzipped folder, then run:
+Unzip the file.
+
+Before running the installer, open the `hotml` file first:
+
+1. Right-click `hotml`
+2. Choose **Open**
+3. Wait until the help message appears
+4. Close the window
+
+Then open Terminal in the unzipped folder and run:
 
 ```bash
 ./install.sh
@@ -46,16 +56,6 @@ JS file (script.js):
 ```
 
 Press Enter to use the default names, or type custom filenames.
-
-## macOS Security Note
-
-If macOS blocks the binary, right-click the `hotml` file and choose **Open**.
-
-Then run:
-
-```bash
-./install.sh
-```
 
 ## Troubleshooting
 
