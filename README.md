@@ -8,9 +8,9 @@ This project was built with AI assistance only for testing this tool (tests fold
 
 ## Available Binary
 
-| File                   | OS    | Architecture          |
-| ---------------------- | ----- | --------------------- |
-| [hotml-macos-arm64.zip]() | macOS | ARM64 / Apple Silicon |
+| File                                                                         | OS    | Architecture          |
+| ---------------------------------------------------------------------------- | ----- | --------------------- |
+| [hotml-macos-arm64.zip](https://github.com/paulnarag/HoTML/releases/tag/v0.1.0) | macOS | ARM64 / Apple Silicon |
 
 ## Installation
 
