@@ -1,1 +1,42 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Editable install metadata
+*.egg-info/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS
+.DS_Store
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Local experiment folders
 path/
+filesExample/
+
+# Generated boilerplate test files
+index.html
+style.css
+script.js
+
+# Optional: old test scripts
+v1.py
