@@ -5,6 +5,8 @@ HoTML is a CLI tool that generates HTML, CSS, and JavaScript boilerplate files.
 
 It is called HoTML because boiling is hot, and this tool creates boilerplate files for HTML, CSS, and JavaScript.
 
+This project was built with AI assistance only for testing this tool (tests folder).
+
 ## Download
 
 Download the latest macOS ARM64 binary from the GitHub Releases page:
