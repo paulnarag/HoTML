@@ -8,6 +8,12 @@ DEFAULTS = {
     "JS": "script.js",
 }
 
+EXTENSIONS = {
+    "HTML": [".html", ".htm"],
+    "CSS": [".css"],
+    "JS": [".js"],
+}
+
 final_names = {}
 overwrite_choices = {}
 
@@ -70,6 +76,25 @@ def get_file_names():
             else:
                 chosen_name = user_input
 
+            # Validate file extension
+            file_ext = Path(chosen_name).suffix.lower()
+            valid_exts = EXTENSIONS[lang]
+            
+            if file_ext and file_ext not in valid_exts:
+                print(f"Warning: {lang} file should have extension {' or '.join(valid_exts)}, not '{file_ext}'")
+                confirm = input(f"Use '{chosen_name}' anyway? (y/n): ").strip().lower()
+                if confirm != "y":
+                    print("Please enter a valid filename.")
+                    continue
+            elif not file_ext and chosen_name != default_name:
+                suggested = chosen_name + valid_exts[0]
+                confirm = input(f"Did you mean '{suggested}'? (y/n): ").strip().lower()
+                if confirm == "y":
+                    chosen_name = suggested
+                elif confirm != "n":
+                    print("Please enter y or n.")
+                    continue
+
             if chosen_name in final_names.values():
                 print(f"{chosen_name} is already selected. Please choose another name.")
                 continue
@@ -103,13 +128,20 @@ def create_files():
         content = contents[lang]
         mode = "w" if overwrite_choices[lang] else "x"
 
-        with open(filename, mode) as f:
-            f.write(content)
+        try:
+            with open(filename, mode) as f:
+                f.write(content)
 
-        if mode == "w":
-            print(f"Overwritten {filename}")
-        else:
-            print(f"Created {filename}")
+            if mode == "w":
+                print(f"Overwritten {filename}")
+            else:
+                print(f"Created {filename}")
+        except PermissionError:
+            print(f"Error: Permission denied. Cannot write to {filename}")
+        except OSError as e:
+            print(f"Error: Could not create {filename} - {e}")
+        except Exception as e:
+            print(f"Unexpected error creating {filename}: {e}")
 
 
 def create():
@@ -148,4 +180,5 @@ def main():
 
 
 if __name__ == "__main__":
+    main()
     main()
