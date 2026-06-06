@@ -10,3 +10,6 @@ dependencies = [
 
 [project.scripts]
 hotml = "hotml.cli:main"
+
+[tool.setuptools]
+packages = ["hotml"]
