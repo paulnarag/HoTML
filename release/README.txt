@@ -1,24 +1,33 @@
-HoTML macOS Binary
+HoTML macOS ARM64 Binary
 
-Quick run:
-1. Open Terminal in this folder.
-2. Run:
+HoTML is a CLI tool that generates HTML, CSS, and JavaScript boilerplate files.
 
-   chmod +x hotml
-   ./hotml help
-   ./hotml create
+INSTALLATION
 
-Install globally:
-1. Open Terminal in this folder.
-2. Run:
+1. Unzip hotml-macos-arm64.zip.
+2. Open Terminal in the unzipped folder.
+3. Run:
 
-   chmod +x install.sh
    ./install.sh
 
-After installing globally, run:
+After installation, use HoTML from anywhere:
 
    hotml help
    hotml create
 
-If macOS blocks the binary:
-Right-click the hotml file and choose Open, or allow it in System Settings > Privacy & Security.
+Example:
+
+   mkdir my-website
+   cd my-website
+   hotml create
+
+HoTML will generate:
+
+   index.html
+   style.css
+   script.js
+
+macOS Security Note:
+
+If macOS blocks the binary, right-click the hotml file and choose Open.
+Then run ./install.sh again.
